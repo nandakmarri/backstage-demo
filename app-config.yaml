@@ -32,7 +32,7 @@ backend:
     connection: ':memory:'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
   jiraDashboard:
-    token: ATATT3xFfGF0eN2q1hyey_G8sa59nceotFwasmbp83qoBskQ2DhQnHMHOIiw40sEqolgrVFX2sLrfw07s91ezX8Q1CzDmLLcr1D408D4EQJZ9QxStXvVEgwZiIhb19yW_r3peUEdkXtb8lxhlN-Li7UEGYy3LMdqR0W2qqxhhjp-NMzurefugmE=2C33AF44
+    token: ${Jira_TOKEN}
     baseUrl: https://nandamarri.atlassian.net/
     headers: {} # Optional
     userEmailSuffix: ${JIRA_EMAIL_SUFFIX} # Optional
