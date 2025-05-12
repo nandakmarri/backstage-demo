@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - none
+  workflow_dispatch:
 
 env:
   ACR_NAME: mybsacr.azurecr.io
