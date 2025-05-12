@@ -1,4 +1,4 @@
-name: Build and Deploy to AKS
+name: Build and Deploy Backstage to AKS
 
 on:
   push:
@@ -8,14 +8,29 @@ on:
 env:
   ACR_NAME: mybsacr.azurecr.io
   IMAGE_NAME: backstage-demo
+  IMAGE_TAG: latest
+  RESOURCE_GROUP: bsrgp
+  AKS_CLUSTER_NAME: myBSCluster
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source
+    - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    - name: Install dependencies and build
+      run: |
+        corepack enable
+        yarn install --immutable
+        yarn tsc
+        yarn build:backend
 
     - name: Azure Login
       uses: azure/login@v1
@@ -25,13 +40,13 @@ jobs:
     - name: Docker Login to ACR
       run: az acr login --name mybsacr
 
-    - name: Build and Push to ACR
+    - name: Build and Push Docker Image
       run: |
-        docker build -t $ACR_NAME/$IMAGE_NAME:latest .
-        docker push $ACR_NAME/$IMAGE_NAME:latest
+        docker build -f packages/backend/Dockerfile -t $ACR_NAME/$IMAGE_NAME:$IMAGE_TAG .
+        docker push $ACR_NAME/$IMAGE_NAME:$IMAGE_TAG
 
-    - name: Get AKS Credentials
-      run: az aks get-credentials --resource-group bsrgp --name myBSCluster
+    - name: Get AKS credentials
+      run: az aks get-credentials --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
 
     - name: Deploy to AKS
       run: |
@@ -39,4 +54,4 @@ jobs:
         kubectl apply -f k8s/service.yaml
 
     - name: Verify Deployment
-      run: kubectl get all
+      run: kubectl get pods
