@@ -17,3 +17,20 @@ spec:
         image: mybsacr.azurecr.io/backstage-demo:latest
         ports:
         - containerPort: 7007
+        env:
+          - name: POSTGRES_HOST
+            value: postgres-service  # Ensure this points to the correct service name for PostgreSQL
+          - name: POSTGRES_PORT
+            value: "5432"
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials  # Secret name you created
+                key: user  # Correct key reference for the username
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials  # Secret name you created
+                key: password  # Correct key reference for the password
+          - name: POSTGRES_DB
+            value: backstage  # Your Postgres DB name
