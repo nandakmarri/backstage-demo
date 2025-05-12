@@ -13,8 +13,8 @@ backend:
       user: ${POSTGRES_USER}
       password: ${POSTGRES_PASSWORD}
       database: ${POSTGRES_DB}
-      ssl:
-        rejectUnauthorized: false  # If you're using a managed PostgreSQL with SSL like Azure PG
+      ssl: false
+        #rejectUnauthorized: false  # If you're using a managed PostgreSQL with SSL like Azure PG
 
 auth:
   providers:
