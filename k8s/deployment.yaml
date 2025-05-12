@@ -16,4 +16,4 @@ spec:
       - name: backstage
         image: mybsacr.azurecr.io/backstage-demo:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 7007
