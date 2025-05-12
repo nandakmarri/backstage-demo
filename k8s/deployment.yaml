@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstage-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstage-demo
+  template:
+    metadata:
+      labels:
+        app: backstage-demo
+    spec:
+      containers:
+      - name: backstage
+        image: mybsacr.azurecr.io/backstage-demo:latest
+        ports:
+        - containerPort: 3000
