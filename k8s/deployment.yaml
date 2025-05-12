@@ -13,24 +13,24 @@ spec:
         app: backstage-demo
     spec:
       containers:
-      - name: backstage
-        image: mybsacr.azurecr.io/backstage-demo:latest
-        ports:
-        - containerPort: 7007
-        env:
-          - name: POSTGRES_HOST
-            value: postgres-service
-          - name: POSTGRES_PORT
-            value: "5432"
-          - name: POSTGRES_USER
-            valueFrom:
-              secretKeyRef:
-                name: postgres-credentials
-                key: postgresuser
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: postgres-credentials
-                key: postgrepass
-          - name: POSTGRES_DB
-            value: backstage
+        - name: backstage
+          image: mybsacr.azurecr.io/backstage-demo:latest
+          ports:
+            - containerPort: 7007
+          env:
+            - name: POSTGRES_HOST
+              value: postgres-service
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: postgresuser
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: postgrepass
+            - name: POSTGRES_DB
+              value: backstage
