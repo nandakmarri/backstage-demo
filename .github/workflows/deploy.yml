@@ -49,7 +49,11 @@ jobs:
     - name: Get AKS credentials
       run: az aks get-credentials --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
 
-    - name: Deploy to AKS
+    - name: Deploy PostgreSQL to AKS
+      run: |
+        kubectl apply -f k8s/postgres-deployment.yaml
+
+    - name: Deploy Backstage to AKS
       run: |
         kubectl apply -f k8s/deployment.yaml
         kubectl apply -f k8s/service.yaml
