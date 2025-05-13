@@ -25,8 +25,8 @@ backend:
       database: backstage_db
   jiraDashboard:
     projects:
-      - id: "DUMMY"
-    defaultProjectId: "DUMMY"
+      - id: "SCRUM"  # This is your Jira Project Key
+    defaultProjectId: "SCRUM"
 
 integrations:
   github:
@@ -35,7 +35,10 @@ integrations:
   azure:
     - host: dev.azure.com
       token: ${AZURE_DEVOPS_TOKEN}  # Ensure AZURE_DEVOPS_TOKEN is set in your environment
-
+  jira:
+    - host: https://nandamarri.atlassian.net
+      username: nandamarri@gmail.com
+      password: ATATT3xFfGF02VaokJBqcSIrC2EhrnBenYZl05IqWMboIXcgTRejt-ZrVf0YKGRKVJFtiFYIlckPaXy9h5SEpkEzaJRVlxAStbC7cD1eYtaeOiu_w-E14-dSsBK9ptnc7OoQcnLoInoGTjV2MHKosfGhrjc6jKxeouvhwICbo5xWdPcUKI4nODQ=97A626DC
 proxy:
   # Add reverse proxy endpoints here as needed
   # Example:
