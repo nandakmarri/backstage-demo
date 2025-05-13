@@ -24,9 +24,9 @@ backend:
       password: yourpassword123  # Ensure this is securely stored (e.g., in a secret)
       database: backstage_db
   jiraDashboard:
-    enabled: false  # Jira integration is disabled
-    defaultBoardId: "dummy-board-id"  # Placeholder
-    defaultProjectKey: "DUMMY"  # Placeholder
+    projects:
+      - id: "DUMMY"
+    defaultProjectId: "DUMMY"
 
 integrations:
   github:
