@@ -66,9 +66,9 @@ spec:
                   key: k8sCaData
           volumeMounts:
             - name: config-volume
-              mountPath: /app/app-config.production.yaml
-              subPath: app-config.production.yaml  # Ensure it's mounted as a file
+              mountPath: /app/app-config.yaml  # Changed from app-config.production.yaml
+              subPath: app-config.yaml         # Must match key in ConfigMap
       volumes:
         - name: config-volume
           configMap:
-            name: backstage-config  # The ConfigMap holding the app-config.production.yaml file
+            name: backstage-config
