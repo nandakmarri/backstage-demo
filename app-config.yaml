@@ -18,11 +18,11 @@ backend:
   database:
     client: pg
     connection:
-      host: ${POSTGRES_HOST}
-      port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
-      database: ${POSTGRES_DB}
+      host: postgres-service
+      port: 5432
+      user: backstageuser
+      password: yourpassword123
+      database: backstage_db
   jiraDashboard:
     token: ${JIRA_TOKEN}
     baseUrl: https://nandamarri.atlassian.net/
