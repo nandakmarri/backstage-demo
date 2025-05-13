@@ -24,11 +24,16 @@ backend:
       password: yourpassword123
       database: backstage_db
   jiraDashboard:
-    token: ${JIRA_TOKEN}
-    baseUrl: https://nandamarri.atlassian.net/
-    headers: {}
-    userEmailSuffix: ${JIRA_EMAIL_SUFFIX}
-    annotationPrefix: jira
+    enabled: false
+    defaultBoardId: "dummy-board-id"
+    defaultProjectKey: "DUMMY"
+
+  # jiraDashboard:
+  #   token: ${JIRA_TOKEN}
+  #   baseUrl: https://nandamarri.atlassian.net/
+  #   headers: {}
+  #   userEmailSuffix: ${JIRA_EMAIL_SUFFIX}
+  #   annotationPrefix: jira
 
 integrations:
   github:
