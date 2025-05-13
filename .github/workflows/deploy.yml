@@ -12,18 +12,6 @@ env:
   IMAGE_TAG: latest
   RESOURCE_GROUP: bsrgp
   AKS_CLUSTER_NAME: myBSCluster
-  POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
-  POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
-  POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-  POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
-  JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
-  JIRA_EMAIL_SUFFIX: ${{ secrets.JIRA_EMAIL_SUFFIX }}
-  K8S_TOKEN: ${{ secrets.K8S_TOKEN }}
-  K8S_CA_DATA: ${{ secrets.K8S_CA_DATA }}
-
 
 jobs:
   build-and-deploy:
@@ -64,7 +52,9 @@ jobs:
     - name: Deploy PostgreSQL to AKS
       run: |
         kubectl apply -f k8s/postgres-deployment.yaml
-
+    - name: Apply Kubernetes Secrets
+      run: kubectl apply -f k8s/secret.yaml
+      
     - name: Deploy Backstage to AKS
       run: |
         kubectl apply -f k8s/deployment.yaml
