@@ -8,11 +8,11 @@ backend:
   database:
     client: pg
     connection:
-      host: ${POSTGRES_HOST}
-      port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
-      database: ${POSTGRES_DB}
+      host: postgres-service
+      port: 5432
+      user: backstageuser
+      password: yourpassword123
+      database: backstage_db
       ssl: false
         #rejectUnauthorized: false  # If you're using a managed PostgreSQL with SSL like Azure PG
 
