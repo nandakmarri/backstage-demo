@@ -34,3 +34,41 @@ spec:
                   key: postgrepass
             - name: POSTGRES_DB
               value: backstage
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-secrets
+                  key: githubToken
+            - name: AZURE_DEVOPS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-secrets
+                  key: azureDevOpsToken
+            - name: JIRA_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-secrets
+                  key: jiraToken
+            - name: JIRA_EMAIL_SUFFIX
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-secrets
+                  key: jiraEmailSuffix
+            - name: K8S_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-secrets
+                  key: k8sToken
+            - name: K8S_CA_DATA
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-secrets
+                  key: k8sCaData
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/app-config.production.yaml
+              subPath: app-config.production.yaml
+      volumes:
+        - name: config-volume
+          configMap:
+            name: backstage-config
