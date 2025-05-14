@@ -44,16 +44,6 @@ spec:
                 secretKeyRef:
                   name: backstage-secrets
                   key: azureDevOpsToken
-            - name: JIRA_API_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: backstage-secrets
-                  key: jiraToken
-            - name: JIRA_EMAIL_SUFFIX
-              valueFrom:
-                secretKeyRef:
-                  name: backstage-secrets
-                  key: jiraEmailSuffix
             - name: K8S_TOKEN
               valueFrom:
                 secretKeyRef:
