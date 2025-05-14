@@ -23,11 +23,6 @@ backend:
       user: backstageuser
       password: yourpassword123  # Ensure this is securely stored (e.g., in a secret)
       database: backstage_db
-  # jiraDashboard:
-  #   projects:
-  #     - id: "SCRUM"  # This is your Jira Project Key
-  #   defaultProjectId: "SCRUM"
-
 integrations:
   github:
     - host: github.com
@@ -35,10 +30,6 @@ integrations:
   azure:
     - host: dev.azure.com
       token: ${AZURE_DEVOPS_TOKEN}  # Ensure AZURE_DEVOPS_TOKEN is set in your environment
-  # jira:
-  #   - host: https://nandamarri.atlassian.net
-  #     username: nandamarri@gmail.com
-  #     password: ${JIRA_API_TOKEN}
 proxy:
   # Add reverse proxy endpoints here as needed
   # Example:
