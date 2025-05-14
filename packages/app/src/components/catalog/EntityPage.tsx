@@ -1,4 +1,3 @@
-import { EntityJiraDashboardContent, isJiraDashboardAvailable } from '@axis-backstage/plugin-jira-dashboard';
 import React from 'react';
 import { Button, Grid } from '@material-ui/core';
 import {
@@ -239,15 +238,6 @@ const defaultEntityPage = (
     <EntityLayout.Route path="/" title="Overview">
       {overviewContent}
     </EntityLayout.Route>
-
-    <EntityLayout.Route
-    if={isJiraDashboardAvailable}
-    path="/jira-dashboard"
-    title="Jira Dashboard"
-  >
-    <EntityJiraDashboardContent />
-  </EntityLayout.Route>
-
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
     </EntityLayout.Route>
