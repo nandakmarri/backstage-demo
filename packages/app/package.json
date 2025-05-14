@@ -14,7 +14,6 @@
     "lint": "backstage-cli package lint"
   },
   "dependencies": {
-    "@axis-backstage/plugin-jira-dashboard": "^1.18.0",
     "@axis-backstage/plugin-readme": "^0.13.0",
     "@backstage/app-defaults": "^1.5.17",
     "@backstage/catalog-model": "^1.7.3",
