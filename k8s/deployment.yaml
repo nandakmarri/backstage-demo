@@ -44,7 +44,7 @@ spec:
                 secretKeyRef:
                   name: backstage-secrets
                   key: azureDevOpsToken
-            - name: JIRA_TOKEN
+            - name: JIRA_API_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: backstage-secrets
