@@ -38,7 +38,7 @@ integrations:
   jira:
     - host: https://nandamarri.atlassian.net
       username: nandamarri@gmail.com
-      password: ATATT3xFfGF02VaokJBqcSIrC2EhrnBenYZl05IqWMboIXcgTRejt-ZrVf0YKGRKVJFtiFYIlckPaXy9h5SEpkEzaJRVlxAStbC7cD1eYtaeOiu_w-E14-dSsBK9ptnc7OoQcnLoInoGTjV2MHKosfGhrjc6jKxeouvhwICbo5xWdPcUKI4nODQ=97A626DC
+      password: ${JIRA_API_TOKEN}
 proxy:
   # Add reverse proxy endpoints here as needed
   # Example:
