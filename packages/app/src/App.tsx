@@ -155,15 +155,15 @@ export default app.createRoot(
     </AppRouter>
   </>,
 );
-export const JiraDashboard = () => (
-  <iframe
-    src="https://nandamarri.atlassian.net/secure/Dashboard.jspa"
-    width="100%"
-    height="600"
-    style={{ border: 0 }}
-    title="Jira Dashboard"
-  />
-);
+// export const JiraDashboard = () => (
+//   <iframe
+//     src="https://nandamarri.atlassian.net/secure/Dashboard.jspa"
+//     width="100%"
+//     height="600"
+//     style={{ border: 0 }}
+//     title="Jira Dashboard"
+//   />
+// );
 
 
 
